@@ -25,4 +25,4 @@ ALTERNATIVELY (Installation via Pip)
 > deepcars
 ```
 
-Please keep in mind that maps will always be saved in `deepcars/maps`, therefore installing `deepcars` via pip and then launching it, will result in the creation of `deepcars/maps`.
+Please keep in mind that maps will always be saved in `maps`, therefore installing `deepcars` via pip and then launching it, will result in the creation of `maps`.
