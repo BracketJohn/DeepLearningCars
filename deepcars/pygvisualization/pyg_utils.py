@@ -1,4 +1,4 @@
-"""Module which provides some nice functionalities that are used by more than one Module."""
+"""Module which provides some nice pygame functionalities that make development easier."""
 from typing import Any, Callable, List, Tuple
 
 from deepcars.pygvisualization import Coordinate, WINDOW_SIZE, ASCII_DICT
@@ -60,32 +60,38 @@ def caption_manager(func: Callable[[Any], Any]) -> Callable[[Any], Any]:
     return caption_resetter
 
 
-# ToDo: Remove redundancy/Move Menu option part here as well, instead of just the text.
-def simple_text_menu(screen: pygame.display.set_mode, options: str) -> None:
-    """Create Basic Text Menu from list of Options."""
-    simple_text(screen, options, is_option=True)
-
-
 # Refine!!
-def simple_text(screen: pygame.display.set_mode, text_lines: List[str], is_option: bool=False, pos: Coordinate=None):
-    font_size = 32 if is_option else 18
-    spacing = 25 if is_option else 15
+def simple_text(screen: pygame.display.set_mode, msgs: str, pos: str):
+    """Simple Text Display Method which takes a line of text and a position and then either:
+    * Prints String as option, displaying the first Letter of that String as the Hotkey to choose said Option
+    * Prints text as info, no Hotkey Displayed
+
+    It chooses to do the first one if position is `middle` and the second one if position is either `topleft`, `topright`.
+    This is far from perfect but an alright way of quickly displaying text.
+    """
+    color = (10, 10, 10)
+    font_size = 32 if pos == 'middle' else 18
+    spacing = 25 if pos == 'middle' else 15
+
     font = pygame.font.Font(None, font_size)
 
-    color = (10, 10, 10)
-
-    for mult, line in enumerate(text_lines):
-        if is_option:
-            text = font.render(f'({line[0]}) {line}', 1, color)
+    for multiplier, msg in enumerate(msgs):
+        if pos == 'middle':
+            text = font.render(f'({msg[0]}) {msg}', 1, color)
         else:
-            text = font.render(f'{line}', 1, color)
+            text = font.render(f'{msg}', 1, color)
 
-        if pos:
-            textpos = text.get_rect()
-            textpos.x, textpos.y = pos.x, pos.y+spacing*mult
-        else:
-            textpos = text.get_rect()
-            textpos.center = screen.get_rect().centerx, 40+spacing*mult
+        textpos = text.get_rect()
+        textpos.top = 20+spacing*multiplier
+
+        if pos == 'middle':
+            textpos.x = screen.get_rect().centerx-textpos.size[0]//2
+
+        if pos == 'topleft':
+            textpos.x = 10
+
+        if pos == 'topright':
+            textpos.right = WINDOW_SIZE-10
+
 
         screen.blit(text, textpos)
-

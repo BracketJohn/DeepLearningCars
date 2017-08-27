@@ -6,8 +6,9 @@ __DISCLAIMER:__ This is in progress and there might still be a lot missing. Curr
 * Visualization via Pygame+Pymung Integration
 * Ability to create and save Maps by drawing them
 * Basic Menu Structures
+* Select and Load Created Maps into Simulation, mark Startingpoint
 
-__Next Milestone:__ Basic Simulation Logic, i.e. selecting map and then repeating same Scenario a bunch of times.
+__Next Milestone:__ Basic Simulation Logic, i.e. repeating same Scenario a bunch of times.
 
 How to Run:
 ```
