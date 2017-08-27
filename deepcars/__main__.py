@@ -12,4 +12,4 @@ def start_sim():
     main_menu()
 
 if __name__ == "__main__":
-    main_menu()
+    start_sim()

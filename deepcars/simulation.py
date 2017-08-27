@@ -1,5 +1,5 @@
 """Module which provides game like menu for the Car Deep Learn Sim."""
-from deepcars.pygvisualization import *
+from deepcars.pygvisualization import Coordinate, create_new_map, create_sim, is_pressed, sim_loop, simple_text_menu
 import pygame
 
 

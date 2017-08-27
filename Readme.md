@@ -9,14 +9,14 @@ __DISCLAIMER:__ This is in progress and there might still be a lot missing. Curr
 
 __Next Milestone:__ Basic Simulation Logic, i.e. selecting map and then repeating same Scenario a bunch of times.
 
-Run it by:
+How to Run:
 ```
 > git clone https://github.com/BracketJohn/DeepLearningCars
 > cd DeepLearningCars
 > python deepcars
 ```
 
-ALTERNATIVELY
+ALTERNATIVELY (Installation via Pip)
 
 ```
 > git clone https://github.com/BracketJohn/DeepLearningCars
