@@ -1,9 +1,8 @@
 """Create Bodys and Shapes from a set of directions and add them to the Screen and Space."""
-from deepcars.pygvisualization import Coordinate, Segment, SegmentPart, WINDOW_SIZE
+from pygvisualization import Coordinate, Segment, SegmentPart, WINDOW_SIZE
+from pygvisualization.pyg_utils import to_pygame
 
 import pymunk
-
-from deepcars.pygvisualization.pyg_utils import to_pygame
 
 
 WALLS = [

@@ -1,10 +1,10 @@
 """Module which provides some nice pygame functionalities that make development easier."""
 from typing import Any, Callable, List, Tuple
 
-from deepcars.pygvisualization import Coordinate, WINDOW_SIZE, ASCII_DICT
-
 import pygame
 from pygame.locals import KEYDOWN, MOUSEBUTTONDOWN, MOUSEBUTTONUP, MOUSEMOTION, QUIT
+
+from pygvisualization import Coordinate, WINDOW_SIZE, ASCII_DICT
 
 
 def is_pressed(event: pygame.event, keys: List[str]) -> bool:

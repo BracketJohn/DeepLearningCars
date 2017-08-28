@@ -1,7 +1,7 @@
 """Module which provides a standardized simulation Space, Screen, Clock and draw_options, which can then be used by all other modules."""
 from typing import Any, Callable, Tuple
 
-from deepcars.pygvisualization import WINDOW_SIZE
+from pygvisualization import WINDOW_SIZE
 
 import pygame
 

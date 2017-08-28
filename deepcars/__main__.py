@@ -6,7 +6,7 @@ if sys.version_info < (3,0):
     sys.exit('Sorry, Python < 3.0 is not supported')
 
 
-from deepcars.main import main_menu
+from main import main_menu
 
 def start_sim():
     main_menu()

@@ -21,7 +21,7 @@ class SegmentPart(NamedTuple):
 Segment: List[SegmentPart] = list
 SimMap: Dict[str, Union[SegmentPart, List[Optional[Segment]]]] = dict
 
-from deepcars.pygvisualization.level_creator import create_new_map
-from deepcars.pygvisualization.pyg_utils import is_pressed, simple_text
-from deepcars.pygvisualization.simspace_creator import create_sim, sim_loop
-from deepcars.pygvisualization.simulation import select_map
+from pygvisualization.level_creator import create_new_map
+from pygvisualization.pyg_utils import is_pressed, simple_text
+from pygvisualization.simspace_creator import create_sim, sim_loop
+from pygvisualization.simulation import select_map

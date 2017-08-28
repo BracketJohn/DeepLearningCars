@@ -3,10 +3,10 @@ import os
 import pickle
 from typing import Generator, List, Tuple
 
-from deepcars.pygvisualization import Coordinate, MAP_DIR, Segment, SegmentPart, SimMap
-from deepcars.pygvisualization.object_generator import create_segment
-from deepcars.pygvisualization.pyg_utils import caption_manager, is_pressed, simple_text
-from deepcars.pygvisualization.simspace_creator import create_sim, sim_loop
+from pygvisualization import Coordinate, MAP_DIR, Segment, SegmentPart, SimMap
+from pygvisualization.object_generator import create_segment
+from pygvisualization.pyg_utils import caption_manager, is_pressed, simple_text
+from pygvisualization.simspace_creator import create_sim, sim_loop
 
 import pygame
 
