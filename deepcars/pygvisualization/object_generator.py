@@ -22,8 +22,9 @@ def create_border(space: pymunk.Space) -> None:
 def mark_startingpoint(space: pymunk.Space, sp: SegmentPart) -> None:
     """Draw Car Simulation Starting point and indicate Starting Direction."""
     start_body = pymunk.Body(body_type=pymunk.Body.STATIC)
-    start_shape = pymunk.Circle(start_body, 10, offset=(to_pygame(sp.start)))
-    space.add(start_shape)
+    start_shape = pymunk.Circle(start_body, 7, offset=(to_pygame(sp.start)))
+    start_dir = pymunk.Segment(start_body, to_pygame(sp.start), to_pygame(sp.end), 2)
+    space.add([start_shape, start_dir])
 
 
 def create_segment(space: pymunk.Space, segment: Segment) -> None:

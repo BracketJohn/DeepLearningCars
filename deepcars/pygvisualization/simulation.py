@@ -4,14 +4,12 @@ import pickle
 import string
 from typing import Dict, List, Tuple
 
+import pygame
+
 from pygvisualization import Coordinate, MAP_DIR, Segment, SegmentPart, SimMap
 from pygvisualization.object_generator import create_border, create_segment, mark_startingpoint
 from pygvisualization.pyg_utils import caption_manager, is_pressed, simple_text
 from pygvisualization.simspace_creator import create_sim, sim_loop
-
-import pygame
-
-import pymunk
 
 
 @caption_manager
