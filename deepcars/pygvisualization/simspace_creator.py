@@ -1,9 +1,9 @@
 """Module which provides a standardized simulation Space, Screen, Clock and draw_options, which can then be used by all other modules."""
 from typing import Any, Callable, Tuple
 
-from pygvisualization import WINDOW_SIZE
-
 import pygame
+
+from pygvisualization import WINDOW_SIZE
 
 import pymunk
 import pymunk.pygame_util
@@ -13,6 +13,7 @@ def create_sim(caption: str='Basic Simulation') -> Tuple[Any]:
     """Create Simulation Space which can be used by all other classes."""
     pygame.init()
     space = pymunk.Space()
+    space.gravity = 0, 0
 
     screen = pygame.display.set_mode((WINDOW_SIZE, WINDOW_SIZE))
     pygame.display.set_caption(caption)

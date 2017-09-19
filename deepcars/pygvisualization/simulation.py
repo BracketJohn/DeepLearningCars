@@ -2,36 +2,45 @@
 import os
 import pickle
 import string
-from typing import Dict, List, Tuple
 
 import pygame
 
-from pygvisualization import Coordinate, MAP_DIR, Segment, SegmentPart, SimMap
-from pygvisualization.object_generator import create_border, create_segment, mark_startingpoint
+from pygvisualization import COLLISION_TYPES, MAP_DIR, SimMap
+from pygvisualization.object_generator import create_border, Car, create_segment, mark_startingpoint
 from pygvisualization.pyg_utils import caption_manager, is_pressed, simple_text
 from pygvisualization.simspace_creator import create_sim, sim_loop
 
+from pymunk.vec2d import Vec2d
 
 @caption_manager
 def simulation(sim_map: SimMap) -> int:
     """Start Simulation."""
     caption = 'Simulation'
     space, screen, draw_options, clock = create_sim(caption)
+    h = space.add_wildcard_collision_handler(COLLISION_TYPES['car'])
+    h.begin = Car.car_collions_h
 
+    cars = [Car(space, sim_map['starting_point']) for i in range(10)]
+
+    mark_startingpoint(space, sim_map['starting_point'])
+    create_border(space)
+
+    for segment in sim_map['segments']:
+        create_segment(space, segment)
+    
     @sim_loop(space, clock, screen, draw_options)
     def run_simulation() -> int:
         for event in pygame.event.get():
             if is_pressed(event, 'qQ'):
                 return 0
 
-        mark_startingpoint(space, sim_map['starting_point'])
-        create_border(space)
-        for segment in sim_map['segments']:
-            create_segment(space, segment)
-
         simple_text(screen, ['Quit'], pos='middle')
         simple_text(screen, ['Fitness: ', 'Speed: ', 'Angle: '], pos='topleft')
-        simple_text(screen, ['nth Iteration'], pos='topright')
+        simple_text(screen, ['nth Iteration'], pos='topright')     
+
+        # for car in cars:
+        #     car.shape.body.velocity = car.shape.body.velocity.rotated_degrees(0.1)
+        #     car.shape.body.angle = Vec2d.get_angle(car.shape.body.velocity)
 
     return run_simulation()
 
